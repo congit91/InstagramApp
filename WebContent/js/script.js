@@ -56,6 +56,7 @@ function loadPhotos() {
 					}).appendTo($("#photos"));
 				}
 				$('#numberOfPhotos').text(photoCount);
+				$('#photos > img').addClass('col-lg-3 col-md-4 col-sm-6 col-xs-12');
 				$('#photos > img').attr('data-toggle', 'modal');
 				$('#photos > img').attr('data-target', '#viewPhoto');
 				$('#photos > img').click(function(){
@@ -79,3 +80,13 @@ $('.modal').on('show.bs.modal', centerModal);
 $(window).on("resize", function () {
     $('.modal:visible').each(centerModal);
 });
+
+function checkValidation() {
+	var username = $('#user-name').val();
+	if (username == null || username == undefined || username == '') {
+		$('#user-name-info').show();
+		$('#user-name-info').text('Please enter user name.');
+		return false;
+	}
+	return true;
+}
